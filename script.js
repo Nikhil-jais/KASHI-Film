@@ -21,13 +21,13 @@ document.addEventListener("DOMContentLoaded", () => {
         gsap.to(loaderSymbol, {
             opacity: 1,
             scale: 1,
-            duration: 1.2,
+            duration: 4.5,
             ease: "power3.out"
         });
 
         gsap.to(loaderLine, {
             width: "100%",
-            duration: 1.6,
+            duration: 4.5,
             ease: "power2.inOut"
         });
 
@@ -85,28 +85,28 @@ function startAnimations() {
         .from(".hero-title span", {
             yPercent: 110,
             rotateX: 70,
-            duration: 1.5,
+            duration: 4.5,
             ease: "power4.out"
         }, "-=.6")
         .from(".hero-subtitle", {
             opacity: 0,
             letterSpacing: "25px",
-            duration: 1
+            duration: 4
         }, "-=.7")
         .from(".hero-intro", {
             opacity: 0,
             y: 25,
-            duration: 1
+            duration: 4
         }, "-=.6")
         .from(".enter-button", {
             opacity: 0,
             scale: .85,
-            duration: 1
+            duration: 4
         }, "-=.5")
         .from(".hero-bottom", {
             opacity: 0,
             y: 20,
-            duration: .8
+            duration: 3
         }, "-=.6");
 
 
@@ -160,7 +160,7 @@ function startAnimations() {
 
         gsap.to(".scroll-line span", {
             x: "100%",
-            duration: 1.8,
+            duration: 4.5,
             repeat: -1,
             ease: "none"
         });
@@ -175,7 +175,7 @@ function startAnimations() {
             gsap.to(element, {
                 opacity: 1,
                 y: 0,
-                duration: 1.2,
+                duration: 4.5,
                 ease: "power3.out",
                 scrollTrigger: {
                     trigger: element,
@@ -194,7 +194,7 @@ function startAnimations() {
 
         gsap.to(".ganga-image", {
             yPercent: 14,
-            scale: 1.16,
+            scale: 2.78,
             ease: "none",
             scrollTrigger: {
                 trigger: ".ganga",
@@ -244,7 +244,7 @@ function startAnimations() {
                 y: 100 + index * 50,
                 opacity: 0,
                 rotate: index === 1 ? 1 : -1,
-                duration: 1.3,
+                duration: 4.3,
                 ease: "power3.out",
                 scrollTrigger: {
                     trigger: card,
