@@ -1,388 +1,678 @@
 "use strict";
 
-/* =========================================
-   VARANASI — MAIN JAVASCRIPT
-========================================= */
+
+/* =========================================================
+   START
+========================================================= */
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    /* =====================================
-       LOADER
-    ===================================== */
-
     const loader = document.getElementById("loader");
 
-    if (loader) {
+    const loaderSymbol =
+        document.querySelector(".loader-symbol");
+
+    const loaderLine =
+        document.querySelector(".loader-line span");
+
+
+    if (typeof gsap !== "undefined") {
+
+        gsap.to(loaderSymbol, {
+            opacity: 1,
+            scale: 1,
+            duration: 1.2,
+            ease: "power3.out"
+        });
+
+        gsap.to(loaderLine, {
+            width: "100%",
+            duration: 1.6,
+            ease: "power2.inOut"
+        });
+
         setTimeout(() => {
-            loader.classList.add("hidden");
-            document.body.classList.remove("loading");
-        }, 1200);
-    }
 
-
-    /* =====================================
-       MOBILE MENU
-    ===================================== */
-
-    const menuButton = document.getElementById("menuButton");
-    const mobileMenu = document.getElementById("mobileMenu");
-
-    if (menuButton && mobileMenu) {
-
-        menuButton.addEventListener("click", () => {
-            mobileMenu.classList.toggle("open");
-        });
-
-        const mobileLinks = mobileMenu.querySelectorAll("a");
-
-        mobileLinks.forEach(link => {
-            link.addEventListener("click", () => {
-                mobileMenu.classList.remove("open");
-            });
-        });
-    }
-
-
-    /* =====================================
-       FLOATING PARTICLES
-    ===================================== */
-
-    const particleContainer =
-        document.getElementById("heroParticles");
-
-    if (particleContainer) {
-
-        for (let i = 0; i < 35; i++) {
-
-            const particle =
-                document.createElement("span");
-
-            particle.className = "particle";
-
-            particle.style.left =
-                Math.random() * 100 + "%";
-
-            particle.style.animationDuration =
-                (8 + Math.random() * 15) + "s";
-
-            particle.style.animationDelay =
-                Math.random() * 10 + "s";
-
-            const size =
-                1 + Math.random() * 3;
-
-            particle.style.width = size + "px";
-            particle.style.height = size + "px";
-
-            particleContainer.appendChild(particle);
-        }
-    }
-
-
-    /* =====================================
-       PARALLAX ELEMENTS
-    ===================================== */
-
-    const heroImage =
-        document.querySelector(".hero-image");
-
-    const gangaBackground =
-        document.querySelector(".ganga-background");
-
-    const streetBackground =
-        document.querySelector(".street-background");
-
-    const sarnathBackground =
-        document.querySelector(".sarnath-background");
-
-
-    function updateParallax() {
-
-        const scrollY = window.scrollY;
-
-        if (heroImage) {
-
-            heroImage.style.transform =
-                "translateY(" +
-                scrollY * 0.18 +
-                "px) scale(1.08)";
-        }
-
-
-        if (gangaBackground) {
-
-            const section =
-                gangaBackground.parentElement;
-
-            const rect =
-                section.getBoundingClientRect();
-
-            const offset =
-                (window.innerHeight / 2 - rect.top) * 0.08;
-
-            gangaBackground.style.transform =
-                "translateY(" +
-                offset +
-                "px) scale(1.08)";
-        }
-
-
-        if (streetBackground) {
-
-            const section =
-                streetBackground.parentElement;
-
-            const rect =
-                section.getBoundingClientRect();
-
-            const offset =
-                (window.innerHeight / 2 - rect.top) * 0.08;
-
-            streetBackground.style.transform =
-                "translateY(" +
-                offset +
-                "px) scale(1.08)";
-        }
-
-
-        if (sarnathBackground) {
-
-            const section =
-                sarnathBackground.parentElement;
-
-            const rect =
-                section.getBoundingClientRect();
-
-            const offset =
-                (window.innerHeight / 2 - rect.top) * 0.08;
-
-            sarnathBackground.style.transform =
-                "translateY(" +
-                offset +
-                "px) scale(1.08)";
-        }
-    }
-
-
-    let ticking = false;
-
-    window.addEventListener("scroll", () => {
-
-        if (!ticking) {
-
-            window.requestAnimationFrame(() => {
-
-                updateParallax();
-
-                ticking = false;
-
-            });
-
-            ticking = true;
-        }
-    });
-
-
-    /* =====================================
-       HERO MOUSE MOVEMENT
-    ===================================== */
-
-    const heroContent =
-        document.querySelector(".hero-content");
-
-    if (heroContent && window.innerWidth > 800) {
-
-        window.addEventListener("mousemove", event => {
-
-            const x =
-                (event.clientX / window.innerWidth - 0.5) * 10;
-
-            const y =
-                (event.clientY / window.innerHeight - 0.5) * 10;
-
-            heroContent.style.transform =
-                "translate(" +
-                x +
-                "px, " +
-                y +
-                "px)";
-        });
-    }
-
-
-    /* =====================================
-       GHAT CARD 3D EFFECT
-    ===================================== */
-
-    const cards =
-        document.querySelectorAll(".ghat-card");
-
-    cards.forEach(card => {
-
-        card.addEventListener("mousemove", event => {
-
-            if (window.innerWidth <= 800) {
-                return;
-            }
-
-            const rect =
-                card.getBoundingClientRect();
-
-            const x =
-                event.clientX - rect.left;
-
-            const y =
-                event.clientY - rect.top;
-
-            const rotateX =
-                ((y / rect.height) - 0.5) * -4;
-
-            const rotateY =
-                ((x / rect.width) - 0.5) * 4;
-
-            card.style.transform =
-                "perspective(1000px) " +
-                "rotateX(" +
-                rotateX +
-                "deg) rotateY(" +
-                rotateY +
-                "deg)";
-        });
-
-
-        card.addEventListener("mouseleave", () => {
-
-            card.style.transform =
-                "perspective(1000px) " +
-                "rotateX(0deg) " +
-                "rotateY(0deg)";
-        });
-    });
-
-
-    /* =====================================
-       SCROLL REVEAL
-    ===================================== */
-
-    const revealElements =
-        document.querySelectorAll(
-            ".intro-content, " +
-            ".section-heading, " +
-            ".ganga-content, " +
-            ".temple-feature, " +
-            ".street-content, " +
-            ".culture-item, " +
-            ".sarnath-content, " +
-            ".final-content"
-        );
-
-
-    if ("IntersectionObserver" in window) {
-
-        const revealObserver =
-            new IntersectionObserver(
-                entries => {
-
-                    entries.forEach(entry => {
-
-                        if (entry.isIntersecting) {
-
-                            entry.target.classList.add(
-                                "visible"
-                            );
-
-                            revealObserver.unobserve(
-                                entry.target
-                            );
-                        }
-                    });
-                },
-                {
-                    threshold: 0.15
+            gsap.to(loader, {
+                opacity: 0,
+                duration: 1,
+                pointerEvents: "none",
+                onComplete: () => {
+                    loader.style.display = "none";
+                    startAnimations();
                 }
-            );
+            });
 
-
-        revealElements.forEach(element => {
-
-            element.classList.add("reveal");
-
-            revealObserver.observe(element);
-        });
+        }, 1800);
 
     } else {
 
-        revealElements.forEach(element => {
-            element.classList.add("visible");
-        });
+        loader.style.display = "none";
+        startAnimations();
+
     }
-
-
-    /* =====================================
-       ACTIVE NAVIGATION
-    ===================================== */
-
-    const sections =
-        document.querySelectorAll("section[id]");
-
-    const navLinks =
-        document.querySelectorAll(".nav-links a");
-
-
-    if ("IntersectionObserver" in window) {
-
-        const navObserver =
-            new IntersectionObserver(
-                entries => {
-
-                    entries.forEach(entry => {
-
-                        if (entry.isIntersecting) {
-
-                            navLinks.forEach(link => {
-
-                                link.classList.remove(
-                                    "active"
-                                );
-
-                                if (
-                                    link.getAttribute("href") ===
-                                    "#" + entry.target.id
-                                ) {
-
-                                    link.classList.add(
-                                        "active"
-                                    );
-                                }
-                            });
-                        }
-                    });
-                },
-                {
-                    threshold: 0.45
-                }
-            );
-
-
-        sections.forEach(section => {
-            navObserver.observe(section);
-        });
-    }
-
-
-    /* =====================================
-       INITIAL PARALLAX
-    ===================================== */
-
-    updateParallax();
-
-
-    /* =====================================
-       DEBUG MESSAGE
-    ===================================== */
-
-    console.log(
-        "VARANASI — The Eternal City loaded successfully."
-    );
 
 });
+
+
+/* =========================================================
+   GSAP
+========================================================= */
+
+function startAnimations() {
+
+    if (typeof gsap === "undefined") {
+        return;
+    }
+
+    if (typeof ScrollTrigger !== "undefined") {
+        gsap.registerPlugin(ScrollTrigger);
+    }
+
+
+    /* =====================================================
+       HERO INTRO
+    ===================================================== */
+
+    const heroTimeline = gsap.timeline();
+
+    heroTimeline
+        .from(".hero-kicker", {
+            opacity: 0,
+            y: 25,
+            duration: 1
+        })
+        .from(".hero-title span", {
+            yPercent: 110,
+            rotateX: 70,
+            duration: 1.5,
+            ease: "power4.out"
+        }, "-=.6")
+        .from(".hero-subtitle", {
+            opacity: 0,
+            letterSpacing: "25px",
+            duration: 1
+        }, "-=.7")
+        .from(".hero-intro", {
+            opacity: 0,
+            y: 25,
+            duration: 1
+        }, "-=.6")
+        .from(".enter-button", {
+            opacity: 0,
+            scale: .85,
+            duration: 1
+        }, "-=.5")
+        .from(".hero-bottom", {
+            opacity: 0,
+            y: 20,
+            duration: .8
+        }, "-=.6");
+
+
+    /* =====================================================
+       HERO PARALLAX
+    ===================================================== */
+
+    if (typeof ScrollTrigger !== "undefined") {
+
+        gsap.to(".hero-image", {
+            yPercent: 18,
+            scale: 1.2,
+            ease: "none",
+            scrollTrigger: {
+                trigger: ".hero",
+                start: "top top",
+                end: "bottom top",
+                scrub: 1.2
+            }
+        });
+
+
+        gsap.to(".hero-content", {
+            yPercent: -35,
+            opacity: .2,
+            ease: "none",
+            scrollTrigger: {
+                trigger: ".hero",
+                start: "top top",
+                end: "bottom top",
+                scrub: 1
+            }
+        });
+
+
+        gsap.to(".hero-side", {
+            y: -150,
+            ease: "none",
+            scrollTrigger: {
+                trigger: ".hero",
+                start: "top top",
+                end: "bottom top",
+                scrub: 1
+            }
+        });
+
+
+        /* =================================================
+           HERO SCROLL LINE
+        ================================================= */
+
+        gsap.to(".scroll-line span", {
+            x: "100%",
+            duration: 1.8,
+            repeat: -1,
+            ease: "none"
+        });
+
+
+        /* =================================================
+           REVEALS
+        ================================================= */
+
+        gsap.utils.toArray(".reveal").forEach(element => {
+
+            gsap.to(element, {
+                opacity: 1,
+                y: 0,
+                duration: 1.2,
+                ease: "power3.out",
+                scrollTrigger: {
+                    trigger: element,
+                    start: "top 82%",
+                    toggleActions:
+                        "play none none reverse"
+                }
+            });
+
+        });
+
+
+        /* =================================================
+           GANGA
+        ================================================= */
+
+        gsap.to(".ganga-image", {
+            yPercent: 14,
+            scale: 1.16,
+            ease: "none",
+            scrollTrigger: {
+                trigger: ".ganga",
+                start: "top bottom",
+                end: "bottom top",
+                scrub: 1.2
+            }
+        });
+
+
+        gsap.from(".giant-title", {
+            xPercent: -25,
+            opacity: 0,
+            ease: "none",
+            scrollTrigger: {
+                trigger: ".ganga",
+                start: "top 70%",
+                end: "center center",
+                scrub: 1
+            }
+        });
+
+
+        /* =================================================
+           QUOTE
+        ================================================= */
+
+        gsap.from(".quote", {
+            y: 120,
+            opacity: 0,
+            scrollTrigger: {
+                trigger: ".quote-section",
+                start: "top 75%",
+                end: "center center",
+                scrub: 1
+            }
+        });
+
+
+        /* =================================================
+           GHAT CARDS
+        ================================================= */
+
+        gsap.utils.toArray(".ghat-card").forEach((card, index) => {
+
+            gsap.from(card, {
+                y: 100 + index * 50,
+                opacity: 0,
+                rotate: index === 1 ? 1 : -1,
+                duration: 1.3,
+                ease: "power3.out",
+                scrollTrigger: {
+                    trigger: card,
+                    start: "top 85%",
+                    toggleActions:
+                        "play none none reverse"
+                }
+            });
+
+
+            const image =
+                card.querySelector(".ghat-image");
+
+
+            gsap.to(image, {
+                yPercent: 10,
+                ease: "none",
+                scrollTrigger: {
+                    trigger: card,
+                    start: "top bottom",
+                    end: "bottom top",
+                    scrub: 1
+                }
+            });
+
+        });
+
+
+        /* =================================================
+           GALIS
+        ================================================= */
+
+        gsap.to(".gali-image", {
+            scale: 1.18,
+            yPercent: 12,
+            ease: "none",
+            scrollTrigger: {
+                trigger: ".galis",
+                start: "top bottom",
+                end: "bottom top",
+                scrub: 1.2
+            }
+        });
+
+
+        gsap.from(".gali-title", {
+            xPercent: -20,
+            opacity: 0,
+            ease: "none",
+            scrollTrigger: {
+                trigger: ".galis",
+                start: "top 75%",
+                end: "center center",
+                scrub: 1
+            }
+        });
+
+
+        /* =================================================
+           TEMPLE IMAGE
+        ================================================= */
+
+        gsap.to(".temple-image", {
+            scale: 1,
+            ease: "none",
+            scrollTrigger: {
+                trigger: ".temple-image-wrap",
+                start: "top bottom",
+                end: "center center",
+                scrub: 1
+            }
+        });
+
+
+        gsap.from(".temple-copy", {
+            x: 100,
+            opacity: 0,
+            scrollTrigger: {
+                trigger: ".temple-feature",
+                start: "top 75%",
+                end: "center center",
+                scrub: 1
+            }
+        });
+
+
+        gsap.to(".temple-image-shine", {
+            x: "200%",
+            ease: "none",
+            scrollTrigger: {
+                trigger: ".temple-image-wrap",
+                start: "top 70%",
+                end: "bottom 40%",
+                scrub: 1
+            }
+        });
+
+
+        /* =================================================
+           CULTURE
+        ================================================= */
+
+        gsap.to(".culture-background", {
+            scale: 1.18,
+            yPercent: 8,
+            ease: "none",
+            scrollTrigger: {
+                trigger: ".culture",
+                start: "top bottom",
+                end: "bottom top",
+                scrub: 1
+            }
+        });
+
+
+        gsap.from(".culture-title", {
+            y: 120,
+            opacity: 0,
+            scrollTrigger: {
+                trigger: ".culture",
+                start: "top 70%",
+                end: "center center",
+                scrub: 1
+            }
+        });
+
+
+        gsap.from(".culture-grid div", {
+            y: 50,
+            opacity: 0,
+            stagger: .15,
+            scrollTrigger: {
+                trigger: ".culture-grid",
+                start: "top 80%",
+                toggleActions:
+                    "play none none reverse"
+            }
+        });
+
+
+        /* =================================================
+           SARNATH
+        ================================================= */
+
+        gsap.to(".sarnath-image", {
+            scale: 1.16,
+            yPercent: 10,
+            ease: "none",
+            scrollTrigger: {
+                trigger: ".sarnath",
+                start: "top bottom",
+                end: "bottom top",
+                scrub: 1.2
+            }
+        });
+
+
+        gsap.from(".sarnath-content h2", {
+            xPercent: -30,
+            opacity: 0,
+            scrollTrigger: {
+                trigger: ".sarnath",
+                start: "top 75%",
+                end: "center center",
+                scrub: 1
+            }
+        });
+
+
+        /* =================================================
+           FINALE
+        ================================================= */
+
+        gsap.to(".finale-bg", {
+            scale: 1.15,
+            yPercent: -5,
+            ease: "none",
+            scrollTrigger: {
+                trigger: ".finale",
+                start: "top bottom",
+                end: "bottom top",
+                scrub: 1
+            }
+        });
+
+
+        gsap.from(".finale-content", {
+            y: 100,
+            opacity: 0,
+            scrollTrigger: {
+                trigger: ".finale",
+                start: "top 70%",
+                end: "center center",
+                scrub: 1
+            }
+        });
+
+
+        /* =================================================
+           SCROLL PROGRESS
+        ================================================= */
+
+        gsap.to(".scroll-progress span", {
+            height: "100%",
+            ease: "none",
+            scrollTrigger: {
+                start: "top top",
+                end: "max",
+                scrub: true
+            }
+        });
+
+    }
+
+
+    /* =====================================================
+       CUSTOM CURSOR
+    ===================================================== */
+
+    const cursorDot =
+        document.querySelector(".cursor-dot");
+
+    const cursorRing =
+        document.querySelector(".cursor-ring");
+
+
+    if (cursorDot && cursorRing) {
+
+        let mouseX = window.innerWidth / 2;
+        let mouseY = window.innerHeight / 2;
+
+        let ringX = mouseX;
+        let ringY = mouseY;
+
+
+        window.addEventListener("mousemove", event => {
+
+            mouseX = event.clientX;
+            mouseY = event.clientY;
+
+            cursorDot.style.left = mouseX + "px";
+            cursorDot.style.top = mouseY + "px";
+
+        });
+
+
+        function animateCursor() {
+
+            ringX += (mouseX - ringX) * .12;
+            ringY += (mouseY - ringY) * .12;
+
+            cursorRing.style.left = ringX + "px";
+            cursorRing.style.top = ringY + "px";
+
+            requestAnimationFrame(animateCursor);
+
+        }
+
+        animateCursor();
+
+
+        document
+            .querySelectorAll("a, button, .ghat-card")
+            .forEach(element => {
+
+                element.addEventListener("mouseenter", () => {
+                    cursorRing.classList.add("active");
+                });
+
+                element.addEventListener("mouseleave", () => {
+                    cursorRing.classList.remove("active");
+                });
+
+            });
+
+    }
+
+
+    /* =====================================================
+       MAGNETIC BUTTONS
+    ===================================================== */
+
+    document
+        .querySelectorAll(".magnetic")
+        .forEach(button => {
+
+            button.addEventListener("mousemove", event => {
+
+                if (window.innerWidth < 800) {
+                    return;
+                }
+
+                const rect =
+                    button.getBoundingClientRect();
+
+                const x =
+                    event.clientX -
+                    rect.left -
+                    rect.width / 2;
+
+                const y =
+                    event.clientY -
+                    rect.top -
+                    rect.height / 2;
+
+
+                gsap.to(button, {
+                    x: x * .18,
+                    y: y * .18,
+                    duration: .4,
+                    ease: "power3.out"
+                });
+
+            });
+
+
+            button.addEventListener("mouseleave", () => {
+
+                gsap.to(button, {
+                    x: 0,
+                    y: 0,
+                    duration: .6,
+                    ease: "elastic.out(1,.4)"
+                });
+
+            });
+
+        });
+
+
+    /* =====================================================
+       MENU
+    ===================================================== */
+
+    const menuButton =
+        document.getElementById("menuButton");
+
+    const menuOverlay =
+        document.getElementById("menuOverlay");
+
+
+    if (menuButton && menuOverlay) {
+
+        menuButton.addEventListener("click", () => {
+
+            menuOverlay.classList.toggle("open");
+
+        });
+
+
+        menuOverlay
+            .querySelectorAll("a")
+            .forEach(link => {
+
+                link.addEventListener("click", () => {
+                    menuOverlay.classList.remove("open");
+                });
+
+            });
+
+    }
+
+
+    /* =====================================================
+       3D CARD MOVEMENT
+    ===================================================== */
+
+    document
+        .querySelectorAll(".ghat-card")
+        .forEach(card => {
+
+            card.addEventListener("mousemove", event => {
+
+                if (window.innerWidth < 800) {
+                    return;
+                }
+
+                const rect =
+                    card.getBoundingClientRect();
+
+                const x =
+                    event.clientX - rect.left;
+
+                const y =
+                    event.clientY - rect.top;
+
+                const rotateY =
+                    ((x / rect.width) - .5) * 4;
+
+                const rotateX =
+                    ((y / rect.height) - .5) * -4;
+
+
+                gsap.to(card, {
+                    rotateX,
+                    rotateY,
+                    transformPerspective: 900,
+                    duration: .5,
+                    ease: "power2.out"
+                });
+
+            });
+
+
+            card.addEventListener("mouseleave", () => {
+
+                gsap.to(card, {
+                    rotateX: 0,
+                    rotateY: 0,
+                    duration: .7,
+                    ease: "power3.out"
+                });
+
+            });
+
+        });
+
+
+    /* =====================================================
+       RESIZE
+    ===================================================== */
+
+    window.addEventListener("resize", () => {
+
+        if (typeof ScrollTrigger !== "undefined") {
+            ScrollTrigger.refresh();
+        }
+
+    });
+
+}
