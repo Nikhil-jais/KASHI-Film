@@ -1,1 +1,377 @@
+{
+  "project": {
+    "title": "KASHI — THE CITY THAT REFUSES TO BECOME THE PAST",
+    "resolution": [3840, 2160],
+    "fps": 24,
+    "runtime_target": "25-30 minutes",
+    "audio_sample_rate": 48000
+  },
 
+  "scenes": [
+    {
+      "id": 1,
+      "title": "Before the City Wakes",
+      "start": "00:00",
+      "end": "01:40",
+      "visuals": [
+        {"file": "scene01_shot01.mp4", "duration": 12},
+        {"file": "scene01_shot02.mp4", "duration": 12},
+        {"file": "scene01_shot03.mp4", "duration": 16},
+        {"file": "scene01_shot04.mp4", "duration": 20},
+        {"file": "scene01_shot05.mp4", "duration": 20},
+        {"file": "scene01_shot06.mp4", "duration": 20}
+      ],
+      "narration": "scene01_narration.wav",
+      "dialogue": ["boatman_01.wav"],
+      "music": ["theme_A_kashi.wav"],
+      "ambience": ["ganga_dawn.wav"],
+      "sfx": ["boat_creak.wav", "oar.wav", "distant_bell.wav", "birds.wav"]
+    },
+
+    {
+      "id": 2,
+      "title": "Three Names, One City",
+      "start": "01:40",
+      "end": "03:10",
+      "visuals": [
+        {"file": "scene02_shot01.mp4", "duration": 15},
+        {"file": "scene02_shot02.mp4", "duration": 15},
+        {"file": "scene02_shot03.mp4", "duration": 15},
+        {"file": "scene02_shot04.mp4", "duration": 15},
+        {"file": "scene02_shot05.mp4", "duration": 15},
+        {"file": "scene02_shot06.mp4", "duration": 15}
+      ],
+      "narration": "scene02_narration.wav",
+      "dialogue": [],
+      "music": ["theme_A_kashi.wav"],
+      "ambience": ["varanasi_city.wav"],
+      "sfx": ["city_morning.wav"]
+    },
+
+    {
+      "id": 3,
+      "title": "Shiva's City",
+      "start": "03:10",
+      "end": "05:00",
+      "visuals": [
+        {"file": "scene03_shot01.mp4", "duration": 18},
+        {"file": "scene03_shot02.mp4", "duration": 18},
+        {"file": "scene03_shot03.mp4", "duration": 18},
+        {"file": "scene03_shot04.mp4", "duration": 18},
+        {"file": "scene03_shot05.mp4", "duration": 18},
+        {"file": "scene03_shot06.mp4", "duration": 10}
+      ],
+      "narration": "scene03_narration.wav",
+      "dialogue": [],
+      "music": ["theme_B_shiva.wav"],
+      "ambience": ["temple_ambience.wav"],
+      "sfx": ["temple_bell.wav"]
+    },
+
+    {
+      "id": 4,
+      "title": "Kashi Vishwanath",
+      "start": "05:00",
+      "end": "06:40",
+      "visuals": [
+        {"file": "scene04_shot01.mp4", "duration": 18},
+        {"file": "scene04_shot02.mp4", "duration": 18},
+        {"file": "scene04_shot03.mp4", "duration": 18},
+        {"file": "scene04_shot04.mp4", "duration": 18},
+        {"file": "scene04_shot05.mp4", "duration": 18},
+        {"file": "scene04_shot06.mp4", "duration": 10}
+      ],
+      "narration": "scene04_narration.wav",
+      "dialogue": [],
+      "music": ["theme_B_shiva.wav"],
+      "ambience": ["temple_ambience.wav"],
+      "sfx": ["temple_bell.wav"]
+    },
+
+    {
+      "id": 5,
+      "title": "The Galis",
+      "start": "06:40",
+      "end": "08:40",
+      "visuals": [
+        {"file": "scene05_shot01.mp4", "duration": 20},
+        {"file": "scene05_shot02.mp4", "duration": 20},
+        {"file": "scene05_shot03.mp4", "duration": 20},
+        {"file": "scene05_shot04.mp4", "duration": 20},
+        {"file": "scene05_shot05.mp4", "duration": 20},
+        {"file": "scene05_shot06.mp4", "duration": 20}
+      ],
+      "narration": "scene05_narration.wav",
+      "dialogue": ["tea_seller_01.wav"],
+      "music": ["theme_D_banaras.wav"],
+      "ambience": ["gali_market.wav"],
+      "sfx": [
+        "footsteps.wav",
+        "bicycle_bell.wav",
+        "cow_movement.wav",
+        "tea_pour.wav",
+        "street_chatter.wav"
+      ]
+    },
+
+    {
+      "id": 6,
+      "title": "The Ghats",
+      "start": "08:40",
+      "end": "10:50",
+      "visuals": [
+        {"file": "scene06_shot01.mp4", "duration": 22},
+        {"file": "scene06_shot02.mp4", "duration": 22},
+        {"file": "scene06_shot03.mp4", "duration": 22},
+        {"file": "scene06_shot04.mp4", "duration": 22},
+        {"file": "scene06_shot05.mp4", "duration": 22},
+        {"file": "scene06_shot06.mp4", "duration": 20}
+      ],
+      "narration": "scene06_narration.wav",
+      "dialogue": ["boatman_02.wav"],
+      "music": ["theme_C_ganga.wav"],
+      "ambience": ["ghat_morning.wav"],
+      "sfx": ["river.wav", "oars.wav", "conch.wav"]
+    },
+
+    {
+      "id": 7,
+      "title": "Morning on the Ganga",
+      "start": "10:50",
+      "end": "12:30",
+      "visuals": [
+        {"file": "scene07_shot01.mp4", "duration": 20},
+        {"file": "scene07_shot02.mp4", "duration": 20},
+        {"file": "scene07_shot03.mp4", "duration": 20},
+        {"file": "scene07_shot04.mp4", "duration": 20},
+        {"file": "scene07_shot05.mp4", "duration": 20}
+      ],
+      "narration": "scene07_narration.wav",
+      "dialogue": [],
+      "music": ["theme_C_ganga.wav"],
+      "ambience": ["ganga_morning.wav"],
+      "sfx": ["morning_birds.wav", "river.wav", "temple_bells.wav"]
+    },
+
+    {
+      "id": 8,
+      "title": "Taste of Banaras",
+      "start": "12:30",
+      "end": "14:00",
+      "visuals": [
+        {"file": "scene08_shot01.mp4", "duration": 15},
+        {"file": "scene08_shot02.mp4", "duration": 15},
+        {"file": "scene08_shot03.mp4", "duration": 15},
+        {"file": "scene08_shot04.mp4", "duration": 15},
+        {"file": "scene08_shot05.mp4", "duration": 15},
+        {"file": "scene08_shot06.mp4", "duration": 15}
+      ],
+      "narration": "scene08_narration.wav",
+      "dialogue": ["food_seller_01.wav"],
+      "music": ["theme_D_banaras.wav"],
+      "ambience": ["food_market.wav"],
+      "sfx": ["food_sizzle.wav", "plates.wav", "utensils.wav", "market_chatter.wav"]
+    },
+
+    {
+      "id": 9,
+      "title": "The Golden Thread",
+      "start": "14:00",
+      "end": "15:40",
+      "visuals": [
+        {"file": "scene09_shot01.mp4", "duration": 20},
+        {"file": "scene09_shot02.mp4", "duration": 20},
+        {"file": "scene09_shot03.mp4", "duration": 20},
+        {"file": "scene09_shot04.mp4", "duration": 20},
+        {"file": "scene09_shot05.mp4", "duration": 20}
+      ],
+      "narration": "scene09_narration.wav",
+      "dialogue": ["weaver_01.wav"],
+      "music": ["theme_D_banaras.wav"],
+      "ambience": ["weaving_room.wav"],
+      "sfx": ["loom.wav", "thread_movement.wav"]
+    },
+
+    {
+      "id": 10,
+      "title": "The City That Sings",
+      "start": "15:40",
+      "end": "17:20",
+      "visuals": [
+        {"file": "scene10_shot01.mp4", "duration": 20},
+        {"file": "scene10_shot02.mp4", "duration": 20},
+        {"file": "scene10_shot03.mp4", "duration": 20},
+        {"file": "scene10_shot04.mp4", "duration": 20},
+        {"file": "scene10_shot05.mp4", "duration": 20}
+      ],
+      "narration": "scene10_narration.wav",
+      "dialogue": [],
+      "music": ["shehnai_city.wav", "tabla_city.wav"],
+      "ambience": ["music_gathering.wav"],
+      "sfx": ["shehnai.wav", "tabla.wav"]
+    },
+
+    {
+      "id": 11,
+      "title": "Many Paths, One City",
+      "start": "17:20",
+      "end": "19:10",
+      "visuals": [
+        {"file": "scene11_shot01.mp4", "duration": 18},
+        {"file": "scene11_shot02.mp4", "duration": 18},
+        {"file": "scene11_shot03.mp4", "duration": 18},
+        {"file": "scene11_shot04.mp4", "duration": 18},
+        {"file": "scene11_shot05.mp4", "duration": 18},
+        {"file": "scene11_shot06.mp4", "duration": 18}
+      ],
+      "narration": "scene11_narration.wav",
+      "dialogue": [],
+      "music": ["theme_A_kashi.wav"],
+      "ambience": ["sarnath_ambience.wav"],
+      "sfx": ["temple_bell_to_buddhist_bell.wav"]
+    },
+
+    {
+      "id": 12,
+      "title": "When the City Celebrates",
+      "start": "19:10",
+      "end": "20:50",
+      "visuals": [
+        {"file": "scene12_shot01.mp4", "duration": 20},
+        {"file": "scene12_shot02.mp4", "duration": 20},
+        {"file": "scene12_shot03.mp4", "duration": 20},
+        {"file": "scene12_shot04.mp4", "duration": 20},
+        {"file": "scene12_shot05.mp4", "duration": 20}
+      ],
+      "narration": "scene12_narration.wav",
+      "dialogue": [],
+      "music": ["festival_banaras.wav"],
+      "ambience": ["festival_crowd.wav"],
+      "sfx": ["festival_drums.wav", "crowd.wav"]
+    },
+
+    {
+      "id": 13,
+      "title": "City and Death",
+      "start": "20:50",
+      "end": "22:40",
+      "visuals": [
+        {"file": "scene13_shot01.mp4", "duration": 25},
+        {"file": "scene13_shot02.mp4", "duration": 25},
+        {"file": "scene13_shot03.mp4", "duration": 25},
+        {"file": "scene13_shot04.mp4", "duration": 25}
+      ],
+      "narration": "scene13_narration.wav",
+      "dialogue": [],
+      "music": ["theme_E_reflection.wav"],
+      "ambience": ["river_sparse.wav"],
+      "sfx": ["distant_bell.wav"]
+    },
+
+    {
+      "id": 14,
+      "title": "Night Descends",
+      "start": "22:40",
+      "end": "23:40",
+      "visuals": [
+        {"file": "scene14_shot01.mp4", "duration": 15},
+        {"file": "scene14_shot02.mp4", "duration": 15},
+        {"file": "scene14_shot03.mp4", "duration": 15},
+        {"file": "scene14_shot04.mp4", "duration": 15}
+      ],
+      "narration": "scene14_narration.wav",
+      "dialogue": [],
+      "music": ["theme_F_dev_deepawali.wav"],
+      "ambience": ["night_ganga.wav"],
+      "sfx": ["match_strike.wav", "diya.wav"]
+    },
+
+    {
+      "id": 15,
+      "title": "Dev Deepawali",
+      "start": "23:40",
+      "end": "25:20",
+      "visuals": [
+        {"file": "scene15_shot01.mp4", "duration": 20},
+        {"file": "scene15_shot02.mp4", "duration": 20},
+        {"file": "scene15_shot03.mp4", "duration": 20},
+        {"file": "scene15_shot04.mp4", "duration": 20},
+        {"file": "scene15_shot05.mp4", "duration": 20}
+      ],
+      "narration": "scene15_narration.wav",
+      "dialogue": [],
+      "music": ["theme_F_dev_deepawali.wav"],
+      "ambience": ["dev_deepawali_crowd.wav"],
+      "sfx": ["boats.wav", "festival_crowd.wav", "river_reflections.wav"]
+    },
+
+    {
+      "id": 16,
+      "title": "The River Remembers",
+      "start": "25:20",
+      "end": "26:30",
+      "visuals": [
+        {"file": "scene16_shot01.mp4", "duration": 18},
+        {"file": "scene16_shot02.mp4", "duration": 18},
+        {"file": "scene16_shot03.mp4", "duration": 18},
+        {"file": "scene16_shot04.mp4", "duration": 16}
+      ],
+      "narration": "scene16_narration.wav",
+      "dialogue": ["boatman_03.wav"],
+      "music": ["theme_C_ganga.wav"],
+      "ambience": ["pre_dawn_ganga.wav"],
+      "sfx": ["river.wav", "boat_creak.wav"]
+    },
+
+    {
+      "id": 17,
+      "title": "Kashi Today",
+      "start": "26:30",
+      "end": "27:40",
+      "visuals": [
+        {"file": "scene17_shot01.mp4", "duration": 14},
+        {"file": "scene17_shot02.mp4", "duration": 14},
+        {"file": "scene17_shot03.mp4", "duration": 14},
+        {"file": "scene17_shot04.mp4", "duration": 14},
+        {"file": "scene17_shot05.mp4", "duration": 14}
+      ],
+      "narration": "scene17_narration.wav",
+      "dialogue": [],
+      "music": ["theme_D_banaras.wav"],
+      "ambience": ["modern_varanasi.wav"],
+      "sfx": ["traffic.wav", "street_chatter.wav", "phones.wav"]
+    },
+
+    {
+      "id": 18,
+      "title": "Final Journey",
+      "start": "27:40",
+      "end": "29:00",
+      "visuals": [
+        {"file": "scene18_shot01.mp4", "duration": 20},
+        {"file": "scene18_shot02.mp4", "duration": 20},
+        {"file": "scene18_shot03.mp4", "duration": 20},
+        {"file": "scene18_shot04.mp4", "duration": 20}
+      ],
+      "narration": "scene18_narration.wav",
+      "dialogue": [],
+      "music": ["theme_A_kashi.wav"],
+      "ambience": ["ganga_sunrise.wav"],
+      "sfx": ["morning_birds.wav", "temple_bell.wav"]
+    }
+  ],
+
+  "final_title": {
+    "duration": 14,
+    "title": "काशी",
+    "subtitle": "KASHI",
+    "tagline": "THE CITY THAT REFUSES TO BECOME THE PAST"
+  },
+
+  "credits": {
+    "duration": 45,
+    "music": "credits_music.wav",
+    "ambience": "final_ganga_water.wav",
+    "sfx": "final_boat_creak.wav"
+  }
+}
